@@ -8,6 +8,8 @@ export const SingleArticle = () => {
   const [Article, setArticle] = useState({});
   const { article_id } = useParams();
   const [currentVotes, setCurrentVotes] = useState(0);
+  const [disableVote, setDisableVote] = useState(false);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     getArticleById(article_id).then(({ data }) => {
@@ -17,12 +19,16 @@ export const SingleArticle = () => {
 
   const handleVotes = (article_id, vote) => {
     setCurrentVotes((currentVotes) => currentVotes + vote.inc_votes);
-    changeVotes(article_id, vote).catch((err) => {
+    setDisableVote(true)
+    changeVotes(article_id, vote)
+   .then(setError(false))
+   .catch(() => {
       setCurrentVotes((currentVotes) => currentVotes - vote.inc_votes);
-   
+      setError(true);
     });
   };
-
+ 
+  
   return (
     <>
     <div>
@@ -38,9 +44,8 @@ export const SingleArticle = () => {
     </div>
     <div>
             <p>Votes: {Article.votes + currentVotes}</p>
-            <button
-              onClick={() => {
-                handleVotes(article_id, { inc_votes: 1 });
+            {error && <p>Something went wrong, please try again.</p>}
+            <button disabled={disableVote} onClick={() => {handleVotes(article_id, { inc_votes: 1 });
               }}
             >
               Like! 👍 

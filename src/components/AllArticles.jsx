@@ -1,5 +1,5 @@
 import { useEffect,useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import { fetchArticles } from "../api.js";
 
 import { ArticleCard } from "./ArticleCard";
@@ -21,6 +21,7 @@ const AllArticles = () => {
     return (
 
       <>
+
         <section className="all-articles">
           {articles.map((article) => {
             return (

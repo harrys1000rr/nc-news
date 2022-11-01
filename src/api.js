@@ -1,4 +1,4 @@
-const axios = require("axios");
+import axios from 'axios';
 
 const ncEndpoint = axios.create({
   baseURL: "https://news-app-harrys1000rr.herokuapp.com/api",

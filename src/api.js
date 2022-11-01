@@ -1,11 +1,16 @@
 const axios = require("axios");
 
-export const fetchArticles = (filter) => {
-  return axios
-    .get(`https://nc-news-bb.herokuapp.com/api/articles?${filter}`)
-    .then((res) => {
-      return res.data;
-    });
+const ncEndpoint = axios.create({
+  baseURL: "https://news-app-harrys1000rr.herokuapp.com/api",
+});
+
+export const fetchArticles = (slug) => {
+  return ncEndpoint.get("/articles", {
+    params: { topic: slug },
+  });
 };
 
 
+export const getTopics = () => {
+  return ncEndpoint.get("/topics");
+};

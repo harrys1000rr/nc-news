@@ -1,22 +1,21 @@
-import axios from "axios";
 import { useEffect,useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import { fetchArticles } from "../api.js";
 import "../App.css";
 
-
 const AllArticles = () => {
+
     const [articles, setArticles] = useState([]);
-    useEffect(() => {
-      axios
-        .get(
-          "https://nc-news-bb.herokuapp.com/api/articles"
-        )
-        .then(({ data }) => {
-          setArticles(data.articles);
-        });
-    }, []);
-    return (
+    const { slug } = useParams();
   
-           
+    useEffect(() => {
+      fetchArticles(slug).then(({ data }) => {
+        setArticles(data.allArticles);
+      });
+    }, [slug]);
+   
+  
+    return (
         articles.map((article) => {
               return (
                  <div key={article.article_id} className="article">

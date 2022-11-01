@@ -1,5 +1,5 @@
 import { useEffect,useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import { fetchArticles } from "../api.js";
 
 import { ArticleCard } from "./ArticleCard";
@@ -21,6 +21,7 @@ const AllArticles = () => {
     return (
 
       <>
+
         <section className="all-articles">
           {articles.map((article) => {
             return (
@@ -40,19 +41,6 @@ const AllArticles = () => {
       </>
     );
 
-        articles.map((article) => {
-              return (
-                 <div key={article.article_id} className="article">
-              <h5>{article.title}</h5>
-              <p>Topic: {article.topic}</p>
-              <p>Author: {article.author}</p>
-              <p>Created at: {new Date(article.created_at).toUTCString()}</p>
-              <p>Votes: {article.votes}</p>
-            </div>
-          )}
-              
-      
-        ))
 
   };
 

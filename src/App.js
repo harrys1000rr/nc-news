@@ -4,9 +4,8 @@ import { UserContext } from "./components/UserContexts";
 import { useState } from "react";
 import Nav from "./components/Nav";
 import AllArticles from "./components/AllArticles";
+import { SingleArticle } from "./components/SingleArticle";
 import Header from "./components/Header"
-
-
 
 function App() {
   return (
@@ -16,9 +15,9 @@ function App() {
           <Header />
           <Nav />
           <Routes>
-          <Route path="AllArticles" element={<AllArticles />} />
+          <Route path="/" element={<AllArticles />} />
           <Route path="/topic/:slug" element={<AllArticles />} />
-  
+          <Route path="/:article_id" element={<SingleArticle />} />
           </Routes>
         </div>
       </UserContext.Provider>

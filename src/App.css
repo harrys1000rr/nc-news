@@ -1,48 +1,120 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.article {
-  display: block;
-  height: max-content;
-  color: black !important;
-  text-decoration: none;
-  background-color: #e7e5f3;
-  padding: 20px;
-  margin: 10px;
-}
-
-.App-header {
-  background-color: #282c34;
   min-height: 100vh;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.header {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
 }
 
-.App-link {
-  color: #61dafb;
+.user-icon {
+  color: rgb(17, 14, 14);
+  font-size: 1.5em;
+  margin-top: 0.5em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+
+.article-card-title {
+  font-family: "Georgia", "times", serif;
+  font-weight: lighter;
+  text-align: center;
+  font-size: 1.5em;
+  margin-left: 0.7em;
+  margin-right: 0.7em;
+  margin-bottom: 0.2em;
+  padding-top: 1em;
+}
+
+.card-info {
+  display: flex;
+  flex: row;
+  justify-content: space-around;
+  align-items: flex-end;
+  font-family: "Gotham SSm A","Gotham SSm B","Gotham","-apple-system","BlinkMacSystemFont","Segoe UI","Roboto,Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Geneva","Helvetica Neue",Arial,sans-serif;
+  font-weight: 400;
+  color: rgb(255, 255, 255);
+  padding-bottom: 1em;
+  padding-top: 0.5em;
+}
+
+.article-card {
+  background-color: rgb(241, 102, 102);
+  margin-bottom: 1em;
+  margin-left: 0.9em;
+  margin-right: 0.9em;
+}
+
+.article-card-date {
+  margin-bottom: 0.1em;
+}
+
+.article-card-author {
+  margin-bottom: 0.1em;
+}
+
+
+.single-article-card {
+  margin-left: 0.9em;
+  margin-right: 0.9em;
+  background-color: rgb(241, 102, 102);
+}
+
+.single-article-topic {
+  font-family: "Gotham SSm A","Gotham SSm B","Gotham","-apple-system","BlinkMacSystemFont","Segoe UI","Roboto,Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Geneva","Helvetica Neue",Arial,sans-serif;
+  font-weight: 400;
+  font-size: 1.2em;
+  margin-left: 0.9em;
+  padding-top: 0.5em;
+}
+
+.single-article-title {
+  font-family: "Georgia", "times", serif;
+  font-weight: lighter;
+  font-size: 1.9em;
+  margin-left: 0.5em;
+  margin-right: 0.7em;
+  margin-bottom: 0.2em;
+}
+
+
+
+.single-article-date-author {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 400;
+  font-size: 0.95em;
+  margin-left: 0.6em;
+  margin-right: 0.7em;
+  color: rgb(255, 255, 255);
+}
+
+@media screen and (min-width: 500px) {
+  .title {
+    font-size: 2rem;
+    margin-bottom: 0px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .all-articles {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 1.5rem;
+    margin-top: 1em;
+  }
+
+  .article-card {
+    text-align: center;
+    margin-bottom: 1rem;
+    min-width: 30%;
+    max-width: 30%;
+    flex: auto;
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
   }
 }

@@ -1,7 +1,9 @@
 import { React, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getTopics } from "../api";
- 
+
+import { useParams } from "react-router-dom";
+
 
 const Nav = () => {
   const [topicList, setTopicList] = useState([]);
@@ -18,7 +20,11 @@ const Nav = () => {
       <section >
         <nav>
           <Link
+
             to="/">
+
+            to="AllArticles">
+
             all articles
           </Link>
           {topicList.map((topic) => {

@@ -5,8 +5,8 @@ import { getTopics } from "../api";
 export const Nav = ({ setSortBy, setOrder }) => {
 
   const [topicList, setTopicList] = useState([]);
-  useEffect(() => {
-    getTopics().then(({ data: { topics } }) => {
+
+  useEffect(() => {getTopics().then(({ data: { topics } }) => {
       setTopicList(topics);
     });
   }, []);
@@ -21,15 +21,22 @@ export const Nav = ({ setSortBy, setOrder }) => {
 
     return (
     <section>
-      <section>
-      </section>
-      <section >
-      <nav>
-        <Link to="/">All</Link>
+      <section className="media-nav-bar">   
+      <nav className="nav-bar">
+        <Link className="all-articles-link" to="/">All Topics</Link>
           {topicList.map((topic) => {
+             const buttonStyle = {
+                   backgroundColor: "white",
+                   color: "black",
+                   padding: "0.6em",
+                   outline: "rgb(128, 128, 128) 2px solid",
+                 }
             return ( 
             <p  key={topic.slug}><Link
-            to={`/topic/${topic.slug}`}> 
+            to={`/topic/${topic.slug}`}
+            style={buttonStyle}
+            > 
+
     {topic.slug}          
     
               </Link>
@@ -37,7 +44,7 @@ export const Nav = ({ setSortBy, setOrder }) => {
         </nav>
         <section className="filter-order">
           <select className="sort-by-filter" onChange={handleSortChange}>
-            <option>
+          <option value="" disabled >
               Sort by...
             </option>
             <option value="created_at">Created at</option>
@@ -45,14 +52,13 @@ export const Nav = ({ setSortBy, setOrder }) => {
             <option value="title">Title</option>
           </select>
           <select className="order-by-filter" onChange={handleOrderChange}>
-            <option>
+          <option value="" disabled >
               Order by
             </option>
             <option value="DESC">Desc</option>
             <option value="ASC">Asc</option>
           </select>
         </section>
-      
       </section>
     </section>
   );

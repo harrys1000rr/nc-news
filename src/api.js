@@ -32,3 +32,9 @@ export const getCommentsByArticleId = (article_id) => {
 export const deleteCommentByCommentId = (comment_id) => {
   return ncEndpoint.delete(`comments/${comment_id}`);
 };
+
+export const postCommentByArticleId = (articleID, newComment) => {
+  return ncEndpoint.post(`/articles/${articleID}/comments`, newComment
+  );
+};
+

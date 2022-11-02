@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams } from 'react-router';
+import {Navigate} from 'react-router-dom';
 import { getArticleById,changeVotes  } from "../api";
 import { Comments } from "./Comments";
+import Loading from './Loading';
 
 
 
@@ -11,12 +13,18 @@ export const SingleArticle = () => {
   const [currentVotes, setCurrentVotes] = useState(0);
   const [disableVote, setDisableVote] = useState(false);
   const [error, setError] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    getArticleById(article_id).then(({ data }) => {
+    getArticleById(article_id)
+    .then(({ data }) => {
       setArticle(data.article);
+      setIsLoading(false);
+    })
+    .catch((error) => {
+      setError(true);
     });
-  }, [article_id]);
+}, [article_id]);
 
   const handleVotes = (article_id, vote) => {
     setCurrentVotes((currentVotes) => currentVotes + vote.inc_votes);
@@ -29,7 +37,8 @@ export const SingleArticle = () => {
     });
   };
  
-  
+  if (error) return <Navigate to='/404' />;
+  if (isLoading) return <Loading />;
   return (
     <>
     <div>
@@ -38,23 +47,26 @@ export const SingleArticle = () => {
         <h2 className="single-article-title">{Article.title}</h2>
         <p className="single-article-body">{Article.body}</p>
         <section className="single-article-date-author">
-        <p>Published:{new Date(Article.created_at).toLocaleDateString('en-GB')}</p>
-          <p>By {Article.author}</p>
+        <p>Published: {new Date(Article.created_at).toLocaleDateString('en-GB')}</p>
+          <p>By: {Article.author}</p>
         </section>
       </section>
     </div>
     <div>
-            <p>Votes: {Article.votes + currentVotes}</p>
-            {error && <p>Something went wrong, please try again.</p>}
-            <button disabled={disableVote} onClick={() => {handleVotes(article_id, { inc_votes: 1 });
+            <p className="votes">Likes: {Article.votes + currentVotes}</p>
+            <button className="like-button" disabled={disableVote} onClick={() => {handleVotes(article_id, { inc_votes: 1 });
               }}
             >
-              Like! 👍 
+             LIKE
             </button>
-            <Comments article_id={article_id} />
+            {error && <p>Something went wrong, please try again.</p>}
+
+          <Comments article_id={article_id} />
             </div>
+            
 
     </>
     
   );
 };
+

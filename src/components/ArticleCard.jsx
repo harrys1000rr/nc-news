@@ -9,6 +9,8 @@ export const ArticleCard = ({
   title,
   votes,
 }) => {
+
+
   return (
     <article className="article-card">
       <Link to={`/${article_id}`}>

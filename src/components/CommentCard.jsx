@@ -14,8 +14,7 @@ export const CommentCard = ({ comments, setComments, comment }) => {
       })
     );
 
-    
-    deleteCommentByCommentId(comment_id)
+        deleteCommentByCommentId(comment_id)
       .then(() => {setDeleteButtonDisabled(false);
       })
       .catch(() => {
@@ -24,7 +23,7 @@ export const CommentCard = ({ comments, setComments, comment }) => {
       });
   };
   return (
-    <section className="comment" key={comments.comment_id}>
+    <section className="comment" key={comment.comment_id}>
       <p className="comment-body">{comment.body} </p>
       <div className="comment-bar">
         <p className="comment-votes"> {comment.votes}  ❤</p>

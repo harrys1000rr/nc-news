@@ -22,11 +22,9 @@ const Nav = () => {
             All
           </Link>
           {topicList.map((topic) => {
-            console.log(topic)
             return ( 
-            <p><Link
-            key={topic.slug}
-                to={`/topic/${topic.slug}`}> 
+            <p  key={topic.slug}><Link
+            to={`/topic/${topic.slug}`}> 
     {topic.slug}          
     
               </Link>

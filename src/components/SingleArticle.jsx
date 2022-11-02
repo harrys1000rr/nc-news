@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getArticleById,changeVotes  } from "../api";
+import { Comments } from "./Comments";
 
 
 
@@ -50,6 +51,7 @@ export const SingleArticle = () => {
             >
               Like! 👍 
             </button>
+            <Comments article_id={article_id} />
             </div>
 
     </>

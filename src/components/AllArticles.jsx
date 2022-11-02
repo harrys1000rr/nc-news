@@ -1,8 +1,8 @@
 import { useEffect,useState } from "react";
 import {  useParams } from "react-router-dom";
 import { fetchArticles } from "../api.js";
-
 import { ArticleCard } from "./ArticleCard";
+import {Nav}  from "./Nav";
 
 import "../App.css";
 
@@ -10,18 +10,19 @@ const AllArticles = () => {
 
     const [articles, setArticles] = useState([]);
     const { slug } = useParams();
+    const [order, setOrder] = useState("DESC");
+    const [ sortBy, setSortBy] = useState("created_at");
   
     useEffect(() => {
-      fetchArticles(slug).then(({ data }) => {
+      fetchArticles(slug, sortBy, order).then(({ data }) => {
         setArticles(data.allArticles);
       });
-    }, [slug]);
+    }, [slug, order, sortBy]);
    
-  
+
     return (
-
       <>
-
+       <Nav setSortBy={setSortBy} setOrder={setOrder} />
         <section className="all-articles">
           {articles.map((article) => {
             return (

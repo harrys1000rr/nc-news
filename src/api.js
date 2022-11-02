@@ -5,9 +5,9 @@ const ncEndpoint = axios.create({
 });
 
 
-export const fetchArticles = (slug) => {
+export const fetchArticles = (slug, sortBy, order) => {
   return ncEndpoint.get("/articles", {
-    params: { topic: slug },
+    params: { topic: slug, sort_by: sortBy, order: order },
   });
 };
 

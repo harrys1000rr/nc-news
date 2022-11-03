@@ -8,7 +8,7 @@ import Error from './components/Error';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/nc-news">
       <UserContext.Provider value={{ username: "grumpy19" }}>
         <div className="App">
           <Header />

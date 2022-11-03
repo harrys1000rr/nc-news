@@ -4,6 +4,7 @@ import { UserContext } from "./components/UserContexts";
 import AllArticles from "./components/AllArticles";
 import { SingleArticle } from "./components/SingleArticle";
 import Header from "./components/Header"
+import Error from './components/Error';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<AllArticles />} />
           <Route path="/topic/:slug" element={<AllArticles />} />
           <Route path="/:article_id" element={<SingleArticle />} />
+          <Route path='/404' element={<Error />} />
           </Routes>
         </div>
       </UserContext.Provider>

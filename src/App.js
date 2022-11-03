@@ -1,6 +1,5 @@
 import "./App.css";
-import {Routes, Route } from "react-router-dom";
-import { HashRouter as BrowserRouter} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { UserContext } from "./components/UserContexts";
 import AllArticles from "./components/AllArticles";
 import { SingleArticle } from "./components/SingleArticle";

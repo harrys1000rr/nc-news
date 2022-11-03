@@ -18,7 +18,7 @@ The web application uses:
 
 ## Hosted App
 
-NC News is hosted on Netlify and can be found here: https://haroonkhan-ncnews.netlify.app <br><br>The repo for this app can be found on github: https://github.com/harrys1000rr/nc-news<br><br>
+NC News is hosted on Netlify and can be found here: https://harrys1000rr.github.io/nc-news/app <br><br>The repo for this app can be found on github: https://github.com/harrys1000rr/nc-news<br><br>
 This app is built off the NC News back end API (https://news-app-harrys1000rr.herokuapp.com<br><br> Access the back end repo here: https://github.com/harrys1000rr/HK-BE-NC-News-Board <br><br>
 
 ## Set Up the Repo
